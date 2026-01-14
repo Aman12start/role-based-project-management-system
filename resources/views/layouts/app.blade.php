@@ -13,7 +13,7 @@
 <body class="bg-light">
 
 <nav class="navbar navbar-dark bg-dark px-4">
-    <span class="navbar-brand">Role Based System</span>
+    <span class="navbar-brand">Task Manager</span>
 
     @auth
 

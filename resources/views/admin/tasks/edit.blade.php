@@ -16,6 +16,13 @@
                value="{{ $task->title }}"
                disabled>
     </div>
+    <div class="mb-3">
+        <label>Description</label>
+        <input type="text"
+               class="form-control"
+               value="{{ $task->description }}"
+               disabled>
+    </div>
 
     <div class="mb-3">
         <label>Status</label>

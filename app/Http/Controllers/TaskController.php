@@ -11,18 +11,21 @@ class TaskController extends Controller
 {
     // admin view all tasks
 
-    public function index(){
-        $tasks = Task::with('user')->get();
-        return view('admin.tasks.index',compact('tasks'));
-    }
+public function index()
+{
+    $tasks = Task::with('user')->get();
+    $users = User::select('id','email')->get();
 
+    return view('admin.tasks.index', compact('tasks','users'));
+}
     // admin store (asign new task)
 
     public function store(Request $request){
         $request->validate([
             'title' => 'required',
-            'user_id' => 'required|exists:users,id',
+            'description' => 'required',
             'deadline' => 'required|date',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         Task::create([
