@@ -1,82 +1,66 @@
-# Role-Based Project Management System
+# Role-Based Project Management System (Laravel)
 
-## 📌 Project Description
-This is a Role-Based Project Management System built using **Laravel**.  
-The system supports two roles: **Admin** and **User**, where each role has specific permissions.  
-Admins can manage users and assign tasks, while Users can view and manage only the tasks assigned to them.
-
-The project follows secure authentication practices, clean MVC architecture, and role-based access control.
+A backend-driven project management system built using Laravel, implementing role-based access control (RBAC) with secure authentication and task management workflows.
 
 ---
 
-## 🛠️ Technology Stack
-- **Backend:** Laravel (PHP)
-- **Database:** MySQL
-- **Frontend:** HTML, CSS, Bootstrap
-- **Authentication:** Laravel Auth (Custom)
-- **Email:** SMTP (Mail Notifications)
-- **Version Control:** Git & GitHub
-- **Hosting:** Shared Hosting / VPS (Production Ready)
+## 🚀 Features
 
----
-
-## ✨ Features
-
-### 🔐 Authentication System
-- User login & logout
-- Secure password hashing
-- Role-based access (Admin / User)
-- Session-based authentication
+- Role-based access control (Admin / User)
+- Secure authentication and session management
+- Task assignment and tracking system
+- Email notification system for user onboarding
 - Protected routes using middleware
+- Server-side validation and secure data handling
 
 ---
 
-### 👨‍💼 Admin Module
-- Admin dashboard
-- Create, view, update, and delete users
-- Assign tasks to users
-- Task details include:
-  - Title
-  - Description
-  - Deadline
-  - Status (Pending / Completed)
-- Update task status
-- **Email notification sent when a new user is created**
+## 🧠 System Design Overview
+
+- **Admin Role:**
+  - Manage users (create, update, delete)
+  - Assign tasks with deadlines and status
+  - Monitor task progress
+
+- **User Role:**
+  - Access only assigned tasks
+  - Update task status
+  - Restricted access to admin functionality
+
+- **Access Control:**
+  - Middleware-based route protection (`role:admin`, `role:user`)
+  - Unauthorized access handling
 
 ---
 
-### 👤 User Module
-- User dashboard
-- View only assigned tasks
-- Mark own tasks as completed
-- Restricted from accessing admin routes
+## 🛠 Tech Stack
+
+- Laravel (PHP Framework)
+- MySQL (Database)
+- RESTful APIs
+- JavaScript (basic interaction)
+- SMTP (Email notifications)
+- Git & GitHub
 
 ---
 
-## 📧 Additional Feature (Bonus)
-- When an **Admin creates a new user**, an **email notification is sent via SMTP** to the user’s registered email address containing login details.
-- SMTP credentials are managed securely using environment variables.
+## ⚙️ Backend Highlights
+
+- Designed modular backend structure using Laravel MVC
+- Implemented role-based middleware for access control
+- Built APIs for task assignment and status updates
+- Integrated email service for user onboarding
+- Ensured data validation and secure request handling
 
 ---
 
-## 🧾 Form Handling & Validation
-- Server-side validation using Laravel validation rules
-- Secure handling of form inputs
-- Flash messages for success and error responses
+## ⚙️ Setup Instructions
 
----
-
-## 🔒 Role-Based Access Control
-- Admin routes protected using `role:admin` middleware
-- User routes protected using `role:user` middleware
-- Unauthorized access is prevented
-
----
-
-## 🗂️ Database & Seeder Setup
-- Database structure is managed using **Laravel migrations**
-- Seeders are provided for demo accounts
-
-Run the following command to set up the database:
 ```bash
+git clone <repo-url>
+cd project-folder
+cp .env.example .env
+composer install
+php artisan key:generate
 php artisan migrate --seed
+php artisan serve
